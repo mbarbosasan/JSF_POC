@@ -31,9 +31,11 @@ public class LancamentoBean {
 		return null;
 	}
 	
-	public void deletar(Lancamento lancamento) {
-		   this.lista.remove(lancamento);
-		   LancamentoDAO.deletarPorId(lancamento);
+	public void deletar() {
+			System.out.println("deletando...");
+		   this.lista.remove(this.lancamento);
+		   LancamentoDAO.deletarPorId(this.lancamento);
+		   
 		} 
 	
 	public List<Lancamento> getList() {

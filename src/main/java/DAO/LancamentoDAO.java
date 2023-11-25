@@ -33,11 +33,7 @@ public class LancamentoDAO {
 		em.getTransaction().begin();
 		
 		lancamento = em.find(Lancamento.class, lancamento.getId());
-		//em.createQuery("delete from " + lancamento.getClass() + "where id = " + lancamento.getId());
-		
-		//em.createQuery("delete from" + lancamento.getClass().getSimpleName()+ 
-		//		"lancamento WHERE lancamento.id = :id").
-		//		setParameter("id", lancamento.getId()).executeUpdate();
+		em.remove(lancamento);
 	
 		em.getTransaction().commit();
 		em.close();

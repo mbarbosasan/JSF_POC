@@ -14,21 +14,25 @@
 		<p:messages id="details" showDetail="true" closable="true">
 			<p:autoUpdate />
 		</p:messages>
-		
-		<p:panel header="Lista de Lancamentos">
-			<p:dataTable value="#{lancamentoBean.getList()}" var="lancamento">
-				
-				<p:column headerText="Data"><p:outputLabel value="#{lancamento.data}"/></p:column>
-				<p:column headerText="Descricao"><p:outputLabel value="#{lancamento.descricao}"/></p:column>
-				<p:column headerText="Tipo"><p:outputLabel value="#{lancamento.tipo}"/></p:column>
-				<p:column headerText="Valor"><p:outputLabel value="#{lancamento.valor}"/></p:column>
-				<p:column headerText="Id"><p:outputLabel value="#{lancamento.id}"/></p:column>
-				
-				<p:column headerText="Deletar"><p:commandLink value="Deletar" action="#{lancamentoBean.deletar(lancamento)}"/>
-				</p:column>
-				
-			</p:dataTable>
-		</p:panel>
+		<h:form>
+			<p:panel header="Lista de Lancamentos">
+				<p:dataTable value="#{lancamentoBean.getList()}" var="lancamento">
+					
+					<p:column headerText="Data"><p:outputLabel value="#{lancamento.data}"/></p:column>
+					<p:column headerText="Descricao"><p:outputLabel value="#{lancamento.descricao}"/></p:column>
+					<p:column headerText="Tipo"><p:outputLabel value="#{lancamento.tipo}"/></p:column>
+					<p:column headerText="Valor"><p:outputLabel value="#{lancamento.valor}"/></p:column>
+					<p:column headerText="Id"><p:outputLabel value="#{lancamento.id}"/></p:column>
+					
+					<p:column headerText="Deletar">
+						<p:commandButton value="Deletar" action="#{lancamentoBean.deletar()}">
+		                    <f:setPropertyActionListener value="#{lancamento}" target="#{lancamentoBean.lancamento}" />
+						</p:commandButton>
+					</p:column>
+					
+				</p:dataTable>
+			</p:panel>	
+		</h:form>
 		
 	<h:link outcome="index.xhtml" value="Cadastrar Novo Lançamento"/>
 	
